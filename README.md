@@ -1,81 +1,65 @@
-# ProjectTemplate-Python
+# 🚀 Web Scraper
 
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/xinntao/HandyView.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/xinntao/HandyView/context:python)
-[![download](https://img.shields.io/github/downloads/xinntao/Real-ESRGAN/total.svg)](https://github.com/xinntao/Real-ESRGAN/releases)
-[![Open issue](https://isitmaintained.com/badge/open/xinntao/basicsr.svg)](https://github.com/xinntao/basicsr/issues)
-[![PyPI](https://img.shields.io/pypi/v/basicsr)](https://pypi.org/project/basicsr/)
-[![LICENSE](https://img.shields.io/github/license/xinntao/basicsr.svg)](https://github.com/xinntao/BasicSR/blob/master/LICENSE/LICENSE)
-[![python lint](https://github.com/xinntao/BasicSR/actions/workflows/pylint.yml/badge.svg)](https://github.com/xinntao/BasicSR/blob/master/.github/workflows/pylint.yml)
-[![Publish-pip](https://github.com/xinntao/BasicSR/actions/workflows/publish-pip.yml/badge.svg)](https://github.com/xinntao/BasicSR/blob/master/.github/workflows/publish-pip.yml)
-[![gitee mirror](https://github.com/xinntao/BasicSR/actions/workflows/gitee-mirror.yml/badge.svg)](https://github.com/xinntao/BasicSR/blob/master/.github/workflows/gitee-mirror.yml)
+A FastAPI-based intelligent web scraper powered by **crawl4ai** with advanced business content processing and caching.
 
-[English](README.md) **|** [简体中文](README_CN.md) &emsp; [GitHub](https://github.com/xinntao/ProjectTemplate-Python) **|** [Gitee码云](https://gitee.com/xinntao/ProjectTemplate-Python)
+## ✨ Features
 
-## File Modification
+- **Smart Web Scraping** - Powered by crawl4ai with Playwright
+- **Business Intelligence** - Extracts emails, phone numbers, executives, financials
+- **File Processing** - Converts PDFs, Word docs, Excel files to markdown
+- **Content Optimization** - Dynamic token limiting and content prioritization
+- **PostgreSQL Caching** - 14-day TTL with intelligent URL canonicalization
+- **Content Classification** - Auto-detects business websites, news, technical docs
 
-1. Setup *pre-commit* hook
-    1. If necessary, modify `.pre-commit-config.yaml`
-    1. In the repository root path, run
-    > pre-commit install
-1. Modify the `.gitignore` file
-1. Modify the `LICENSE` file
-    This repository uses the *MIT* license, you may change it to other licenses
-1. Modify the *setup* files
-    1. `setup.cfg`
-    1. `setup.py`, especially the `basicsr` keyword
-1. Modify the `requirements.txt` files
-1. Modify the `VERSION` file
+## 🚀 Quick Start
 
-## GitHub Workflows
+```bash
+# Clone and setup
+git clone https://github.com/lucky-verma/scraper
+cd scraper
 
-1. [pylint](./github/workflows/pylint.yml)
-1. [gitee-repo-mirror](./github/workflow/gitee-repo-mirror.yml) - Support Gitee码云
-    1. Clone GitHub repo in the [Gitee](https://gitee.com/) website
-    1. Modify [gitee-repo-mirror](./github/workflow/gitee-repo-mirror.yml)
-    1. In Github *Settings* -> *Secrets*, add `SSH_PRIVATE_KEY`
+# Docker Setup
+docker build -t scraper .
+docker run -p 8081:8081 scraper
+```
 
-## Other Procedures
+## 📡 API Endpoints
 
-1. The `description`, `website`, `topics` in the main page
-1. Support Chinese documents, for example, `README_CN.md`
+### Scrape Web Page
 
-## Emoji
+```bash
+POST /crawl
+{
+  "url": "https://example.com"
+}
+```
 
-[Emoji cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet)
+### Health Check
 
-| Emoji | Meaning |
-| :---         |     :---:      |
-| :rocket:   | Used for [BasicSR](https://github.com/xinntao/BasicSR) Logo |
-| :sparkles: | Features |
-| :zap: | HOWTOs |
-| :wrench: | Installation / Usage |
-| :hourglass_flowing_sand: | TODO list |
-| :turtle: | Dataset preparation |
-| :computer: | Commands |
-| :european_castle: | Model zoo |
-| :memo: | Designs |
-| :scroll: | License and acknowledgement |
-| :earth_asia: | Citations |
-| :e-mail: | Contact |
-| :m: | Models |
-| :arrow_double_down: | Download |
-| :file_folder: | Datasets |
-| :chart_with_upwards_trend: | Curves|
-| :eyes: | Screenshot |
-| :books: |References |
+```bash
+GET /health
+```
 
-## Useful Image Links
+### Cache Statistics
 
-<img src="https://colab.research.google.com/assets/colab-badge.svg" height="28" alt="google colab logo">  Google Colab Logo <br>
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Windows_darkblue_2012.svg" height="28" alt="google colab logo">  Windows Logo <br>
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo-ubuntu_no%28r%29-black_orange-hex.svg" alt="Ubuntu" height="24">  Ubuntu Logo <br>
+```bash
+GET /cache/stats
+```
 
-## Other Useful Tips
+## 🎯 Use Cases
 
-1. `More` drop-down menu
-    <details>
-    <summary>More</summary>
-    <ul>
-    <li>Nov 19, 2020. Set up ProjectTemplate-Python.</li>
-    </ul>
-    </details>
+- **Company Profiling** - Extract business information from corporate websites
+- **Lead Generation** - Gather contact details and executive information  
+- **Market Research** - Process competitor websites and industry reports
+- **Document Processing** - Convert and analyze PDF reports and presentations
+
+## 🏗️ Architecture
+
+- **FastAPI** - High-performance async web framework
+- **crawl4ai** - Advanced web crawling with Playwright
+- **PostgreSQL** - Persistent caching and metadata storage
+- **TikToken** - Intelligent content tokenization and optimization
+
+***
+
+**Status**: Production Ready | **Port**: 8081 | **Cache TTL**: 14 days
